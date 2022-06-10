@@ -94,6 +94,7 @@ cmp.setup {
       "s",
     }),
   },
+  
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -123,7 +124,7 @@ cmp.setup {
     },
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
     native_menu = false,
   },
 }
