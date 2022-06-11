@@ -46,6 +46,7 @@ end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
+  -- note: I set the highlight colors because the theme I'm using doesn't have them set
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
@@ -54,11 +55,15 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
+      hi! LspReferenceRead ctermbg=240 guibg=#585858
+      hi! LspReferenceText ctermbg=240 guibg=#585858
+      hi! LspReferenceWrite ctermbg=240 guibg=#585858
     ]],
       false
     )
   end
 end
+
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
