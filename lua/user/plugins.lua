@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment things
+  use "windwp/nvim-ts-autotag" -- Autoclose tags
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
