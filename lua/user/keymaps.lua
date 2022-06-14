@@ -53,6 +53,10 @@ keymap("n", "˚", "<Esc>:m .-2<CR>==", opts)
 
 -- Clear highlight with esc 
 keymap("n", "<ESC>", ":noh<CR>", opts)
+
+-- Save quickly
+keymap("n", "<leader>w", ":w<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)

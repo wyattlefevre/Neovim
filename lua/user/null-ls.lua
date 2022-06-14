@@ -11,7 +11,10 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		formatting.prettier.with({ only_local = "node_modules/.bin" }),
+    -- formatting.prettierd,
+    -- formatting.eslint,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
     formatting.gofmt,
@@ -19,7 +22,7 @@ null_ls.setup({
     diagnostics.rubocop,
     formatting.rubocop,
     diagnostics.flake8,
-    diagnostics.eslint,
+    diagnostics.eslint.with({ only_local = "node_modules/.bin" }),
     diagnostics.golangci_lint,
 	},
 })
