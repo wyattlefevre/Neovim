@@ -3,11 +3,8 @@ if not status_ok then
   return
 end
 
-<<<<<<< HEAD
 telescope.load_extension('media_files')
 
-=======
->>>>>>> 12-nvimtree
 local actions = require "telescope.actions"
 
 telescope.setup {
