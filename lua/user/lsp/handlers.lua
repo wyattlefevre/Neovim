@@ -55,12 +55,10 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-      hi! LspReferenceRead ctermbg=240 guibg=#585858
-      hi! LspReferenceText ctermbg=240 guibg=#585858
-      hi! LspReferenceWrite ctermbg=240 guibg=#585858
     ]],
       false
     )
+    print("handler highlighting added")
   end
 end
 
