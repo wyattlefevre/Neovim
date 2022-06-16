@@ -1,64 +1,37 @@
-local colorscheme = "onehalfdark"
--- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
--- if not status_ok then
---   vim.notify("colorscheme " .. colorscheme .. " not found!")
---   return
--- end
-print('colorscheme set')
--- set background to inherit from terminal
--- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
+local colorscheme = "sunbather-light"
 
--- vim.api.nvim_exec([[
---       hi! LspReferenceRead ctermbg=254 guibg=#e4e4e4
---       hi! LspReferenceText ctermbg=254 guibg=#e4e4e4
---       hi! LspReferenceWrite ctermbg=254 guibg=#e4e4e4
--- ]], false)
--- local lightDefaults = function()
---   print('executing light defaults')
---   -- lsp highlighting
---   vim.api.nvim_exec([[
---         hi! LspReferenceRead ctermbg=254 guibg=#e4e4e4
---         hi! LspReferenceText ctermbg=254 guibg=#e4e4e4
---         hi! LspReferenceWrite ctermbg=254 guibg=#e4e4e4
---   ]], false)
---   print('executed')
---   vim.opt["background"] = "light"
--- end
---
-local commandFn = vim.api.nvim_command
-local darkDefaults = function()
-  print('executing dark defaults')
-  -- lsp highlighting
-  vim.cmd("colorscheme " .. colorscheme)
-  commandFn([[
-        highlight! LspReferenceRead ctermbg=240 guibg=#585858
-        highlight! LspReferenceText ctermbg=240 guibg=#585858
-        highlight! LspReferenceWrite ctermbg=240 guibg=#585858
-  ]])
-
-  vim.cmd([[hi CursorLine ctermbg=0 guibg=#000000]]) -- sets highlight line to black. makes it easier to read hint text
-  vim.opt["background"] = "dark"
+local function setHighlights(bg, c, b)
+	bg = bg or "dark"
+	c = c or 240
+	b = b or "#585858"
+	vim.opt["background"] = bg
+	-- lsp highlighting
+	vim.api.nvim_set_hl(0, "LspReferenceRead", { ctermbg = c, bg = b })
+	vim.api.nvim_set_hl(0, "LspReferenceText", { ctermbg = c, bg = b })
+	vim.api.nvim_set_hl(0, "LspReferenceWrite", { ctermbg = c, bg = b })
 end
-darkDefaults()
-commandFn([[
-      highlight! LspReferenceRead ctermbg=240 guibg=#585858
-      highlight! LspReferenceText ctermbg=240 guibg=#585858
-      highlight! LspReferenceWrite ctermbg=240 guibg=#585858
-]])
---
--- local themeConfigs = {
---   ["sunbather"] = lightDefaults,
---   ["onehalfdark"] = darkDefaults,
---   ["onehalflight"] = lightDefaults
--- }
--- print(colorscheme)
--- local setup = themeConfigs[colorscheme]
--- if (setup) then
---   setup()
---   print("theme setup complete")
--- else
---   print("error on setup")
--- end
+
+local lightDefaults = { mode = "light", ctermbg = 256, bg = "#e4e4e4" }
+local darkDefaults = { mode = "dark", ctermbg = 240, bg = "#585858" }
+
+local colors = {
+	["sunbather-light"] = { name = "sunbather", colors = lightDefaults },
+	["sunbather-dark"] = { name = "sunbather", colors = darkDefaults },
+}
+
+local function applyColorscheme(nickName)
+	local scheme = colors[nickName]
+	if not scheme then
+		vim.notify("theme nickname missing or not supported")
+		return
+	end
+	vim.cmd([[colorscheme ]] .. scheme.name)
+  setHighlights(scheme.colors.mode, scheme.colors.ctermbg, scheme.colors.bg)
+end
+
+applyColorscheme(colorscheme)
+vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]]) -- set background to inherit from terminal
+-- vim.cmd([[hi CursorLine ctermbg=0 guibg=#000000]]) -- sets highlight line to black. makes it easier to read hint text
 
 -- Favorite themes:
 -- vim theme | iterm2 theme
