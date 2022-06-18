@@ -48,8 +48,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "J", "5j", opts)
 keymap("n", "K", "5k", opts)
 -- Move text up and down
-keymap("n", "∆", "<Esc>:m .+1<CR>==", opts)
-keymap("n", "˚", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<a-j>", "<Esc>:m .+1<CR>==", opts)
+keymap("n", "<a-k>", "<Esc>:m .-2<CR>==", opts)
 
 -- Clear highlight with esc 
 keymap("n", "<ESC>", ":noh<CR>", opts)
@@ -67,16 +67,16 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "∆", ":m .+1<CR>==", opts) -- configured for MacOS
-keymap("v", "˚", ":m .-2<CR>==", opts) -- configured for MacOS
+keymap("v", "<a-j>", ":m .+1<CR>==", opts) -- configured for Windows
+keymap("v", "<a-k>", ":m .-2<CR>==", opts) -- configured for Windows
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "∆", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "˚", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<a-k>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<a-j>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
