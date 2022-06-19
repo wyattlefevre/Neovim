@@ -1,4 +1,5 @@
-local colorscheme = "sunbather-dark"
+<<<<<<< HEAD
+local colorscheme = "onehalflight"
 
 local function setHighlights(bg, c, b)
 	bg = bg or "dark"
@@ -17,6 +18,8 @@ local darkDefaults = { mode = "dark", ctermbg = 240, bg = "#585858" }
 local colors = {
 	["sunbather-light"] = { name = "sunbather", colors = lightDefaults },
 	["sunbather-dark"] = { name = "sunbather", colors = darkDefaults },
+	["onehalflight"] = { name = "onehalflight", colors = lightDefaults },
+	["onehalfdark"] = { name = "onehalfdark", colors = darkDefaults },
 }
 
 local function applyColorscheme(nickName)
