@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 local colorscheme = "onehalflight"
 
 local function setHighlights(bg, c, b)
