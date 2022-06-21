@@ -29,7 +29,12 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-w>", ":close<CR>", opts)
 
 -- Close buffer
-keymap("n", "<C-b>", ":Bdelete<CR>", opts)
+keymap("n", "<C-b>", ":Bdelete!<CR>", opts)
+
+-- Quit vim
+keymap("n", "<leader>qa", ":qa<CR>", opts)
+keymap("n", "<leader>qq", ":qa!<CR>", opts)
+keymap("n", "<c-q>", ":q<CR>", opts)
 
 -- Vertical split
 keymap("n", "<C-v>", "<C-w>v", opts)

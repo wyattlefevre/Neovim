@@ -1,4 +1,4 @@
-local colorscheme = "onehalflight"
+local colorscheme = "papercolor-dark"
 
 local function setHighlights(bg, c, b)
 	bg = bg or "dark"
@@ -19,6 +19,7 @@ local colors = {
 	["sunbather-dark"] = { name = "sunbather", colors = darkDefaults },
 	["onehalflight"] = { name = "onehalflight", colors = lightDefaults },
 	["onehalfdark"] = { name = "onehalfdark", colors = darkDefaults },
+	["papercolor-dark"] = { name = "PaperColor", colors = darkDefaults },
 }
 
 local function applyColorscheme(nickName)
@@ -32,7 +33,7 @@ local function applyColorscheme(nickName)
 end
 
 applyColorscheme(colorscheme)
-vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]]) -- set background to inherit from terminal
+-- vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]]) -- set background to inherit from terminal
 -- vim.cmd([[hi CursorLine ctermbg=0 guibg=#000000]]) -- sets highlight line to black. makes it easier to read hint text
 
 -- Favorite themes:
