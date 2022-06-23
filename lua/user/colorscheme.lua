@@ -1,4 +1,4 @@
-local colorscheme = "papercolor-dark"
+local colorscheme = "sunbather-light"
 
 local function setHighlights(bg, c, b)
 	bg = bg or "dark"
@@ -14,12 +14,42 @@ end
 local lightDefaults = { mode = "light", ctermbg = 256, bg = "#e4e4e4" }
 local darkDefaults = { mode = "dark", ctermbg = 240, bg = "#585858" }
 
+-- abstract
+-- carbonized light
+-- darkplus
+-- deus
+-- elflord
+-- gruvbox
+-- happy_hacking
+-- hybrid
+-- industry
+-- paramount
+-- pyte
+-- sierra
 local colors = {
-	["sunbather-light"] = { name = "sunbather", colors = lightDefaults },
-	["sunbather-dark"] = { name = "sunbather", colors = darkDefaults },
-	["onehalflight"] = { name = "onehalflight", colors = lightDefaults },
+  -- light
+  ["onehalflight"] = { name = "onehalflight", colors = lightDefaults },
+  ["sunbather-light"] = { name = "sunbather", colors = lightDefaults },
+  ["papercolor-light"] = { name = "PaperColor", colors = lightDefaults },
+  ["carbonized-light"] = { name = "carbonized-light", colors = lightDefaults },
+  ["paramount-light"] = { name = "paramount", colors = lightDefaults },
+  ["pyte"] = { name = "pyte", colors = lightDefaults },
+
+  -- dark
+  ["abstract"] = { name = "abstract", colors = darkDefaults },
 	["onehalfdark"] = { name = "onehalfdark", colors = darkDefaults },
+	["sunbather-dark"] = { name = "sunbather", colors = darkDefaults },
 	["papercolor-dark"] = { name = "PaperColor", colors = darkDefaults },
+	["darkplus"] = { name = "darkplus", colors = darkDefaults },
+	["deus"] = { name = "deus", colors = darkDefaults },
+	["elflord"] = { name = "elflord", colors = darkDefaults },
+	["gruvbox"] = { name = "gruvbox", colors = darkDefaults },
+	["happy_hacking"] = { name = "happy_hacking", colors = darkDefaults },
+	["hybrid"] = { name = "hybrid", colors = darkDefaults },
+	["industry"] = { name = "industry", colors = darkDefaults },
+	["paramount-dark"] = { name = "paramount", colors = darkDefaults },
+	["sierra"] = { name = "sierra", colors = darkDefaults },
+	["onedarker"] = { name = "onedarker", colors = darkDefaults },
 }
 
 local function applyColorscheme(nickName)
@@ -29,7 +59,7 @@ local function applyColorscheme(nickName)
 		return
 	end
 	vim.cmd([[colorscheme ]] .. scheme.name)
-  setHighlights(scheme.colors.mode, scheme.colors.ctermbg, scheme.colors.bg)
+	setHighlights(scheme.colors.mode, scheme.colors.ctermbg, scheme.colors.bg)
 end
 
 applyColorscheme(colorscheme)
