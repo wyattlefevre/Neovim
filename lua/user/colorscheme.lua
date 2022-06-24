@@ -1,4 +1,4 @@
-local colorscheme = "sunbather-light"
+local colorscheme = "onehalflight"
 
 local function setHighlights(bg, c, b)
 	bg = bg or "dark"
