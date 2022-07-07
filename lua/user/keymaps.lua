@@ -62,6 +62,9 @@ keymap("n", "<ESC>", ":noh<CR>", opts)
 -- Save quickly
 keymap("n", "<leader>w", ":w<CR>", opts)
 
+-- Save and format
+keymap("n", "<leader>d", ":lua vim.lsp.buf.formatting_seq_sync()<CR> <bar> :w<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
