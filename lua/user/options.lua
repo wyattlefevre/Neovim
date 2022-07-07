@@ -40,7 +40,9 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
+-- turn off tabs for specific filetypes
+vim.cmd [[autocmd BufRead,BufNewFile, *.go set noexpandtab]]
+vim.cmd [[]]
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
