@@ -29,7 +29,12 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-w>", ":close<CR>", opts)
 
 -- Close buffer
-keymap("n", "<C-b>", ":Bdelete<CR>", opts)
+keymap("n", "<C-b>", ":Bdelete!<CR>", opts)
+
+-- Quit vim
+keymap("n", "<leader>qa", ":qa<CR>", opts)
+keymap("n", "<leader>qq", ":qa!<CR>", opts)
+keymap("n", "<c-q>", ":q<CR>", opts)
 
 -- Vertical split
 keymap("n", "<C-v>", "<C-w>v", opts)
@@ -56,6 +61,9 @@ keymap("n", "<ESC>", ":noh<CR>", opts)
 
 -- Save quickly
 keymap("n", "<leader>w", ":w<CR>", opts)
+
+-- Save and format
+keymap("n", "<leader>d", ":lua vim.lsp.buf.formatting_seq_sync()<CR> <bar> :w<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -85,9 +93,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
--- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>Telescope find_files hidden=true<cr>", opts)
+keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>t", "<cmd>Telescope grep_string<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)

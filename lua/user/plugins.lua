@@ -52,6 +52,9 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
+  use "akinsho/toggleterm.nvim"
+  use "smithbm2316/centerpad.nvim"
+  use "NMAC427/guess-indent.nvim"
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
